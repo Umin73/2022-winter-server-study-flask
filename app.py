@@ -4,13 +4,17 @@ app = Flask(__name__)
 
 @app.route('/id/<int:id>', methods=['GET'])
 def get_api(id):
- if id >= 5000: return {"result" : True}
- else: return {"result" : False}
+    if id >= 5000: return {"result" : True}
+    else: return {"result" : False}
 
 @app.route('/id', methods=['POST'])
 def get_post():
- data = request.get_json()
- return jsonify({'name' : data['name']})
+    data = request.get_json()
+    return {'name' : data['name']}
+
+@app.route('/')
+def test():
+    return 'open!!'
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5000)
