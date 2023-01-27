@@ -4,8 +4,10 @@ app = Flask(__name__)
 
 @app.route('/id/<int:id>', methods=['GET'])
 def get_api(id):
-    if id >= 5000: return {"result" : True}
-    else: return {"result" : False}
+    if id >= 5000:
+         return {"result" : True}
+    else:
+         return {"result" : False}
 
 @app.route('/id', methods=['POST'])
 def get_post():
